@@ -4,27 +4,31 @@
 <!--Brand name of window tab-->
 <head>
     <title> Adopt Your Pets </title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <div id="container">
     <body>
         <header>
             <h1>Adopt Your Pets</h1>    
         </header>
-        <nav>  
+        <nav class="navbar">  
              <ul>
                 <li><a href=index.html>Home</a></li>
-                <li>Find a Pet</li>
+                <li><a href=page3.html>Find a Pet</a></li>
                 <li><a href=page2.html>Find a Shelter</a></li>
                 <li>Contact</li>
             </ul>
         </nav>
 <!--Main Content-->
         <main>
-            <h2> Ready to find yourself a warm company?</h2>
-            <img src="images/findashelter.jpg" alt="page2photoforSEO" width="600">
+            <div class="header-container">
+                <h2 id="headerslogan"> Ready to find yourself a warm company?</h2>
+                <img src="images/findashelter.jpg" alt="p2forSEO" width="600">
+                </div>
+            <div class="content">
             <p>Adopting pets rather than buying them from breeders or pet stores has several compelling benefits that make it a preferred choice for many animal lovers.</p>
+            </div>
             <table>
-                <table border="1"> <!-- table boader -->
                     <caption>Summary of Cooperative Shelters</caption>
                     <thead>
                         <tr>
@@ -74,8 +78,14 @@
             </table>
         </main>
         <footer>
-            <p><i>*Disclaimer: This website is created and maintained for educational purposes only as part of Westcliff Unversity assignments. All content displayed is intended to demonstrate coursework requirements.We ensure that all materials used herein respect intellectual property rights and adhere to fair use standards.</i></p>
+            <div class="Disclaimer">
+            <p><i>*Disclaimer: <br>
+                This website is created and maintained for educational purposes only as part of Westcliff Unversity assignments. All content displayed is intended to demonstrate coursework requirements.<br>
+                We ensure that all materials used herein respect intellectual property rights and adhere to fair use standards.</i></p>
+            </div>
+            <div class="copyright">
             <p>Copyrights&#169;2024</p>
+            </div>
         </footer>
     </body>
 </div>
