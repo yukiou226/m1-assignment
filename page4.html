@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!--Brand name of window tab-->
+<head>
+    <title> Adopt Your Pets </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div id="container">
+    <body>
+        <header>
+            <h1>Adopt Your Pets</h1>    
+        </header>
+        <nav class="navbar">  
+             <ul>
+                <li><a href=index.html>Home</a></li>
+                <li><a href=page3.html>Find a Pet</a></li>
+                <li><a href=page2.html>Find a Shelter</a></li>
+                <li><a href=page4.html>Available Now</a></li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+<!--Main Content-->
+        <main>
+            <div class="header-container">
+                <h2 id="headerslogan"> Ready to find yourself a warm company?</h2>
+                <img src="images/findashelter.jpg" alt="p2forSEO" width="600">
+                </div>
+            <div class="content">
+            <p>Adopting pets rather than buying them from breeders or pet stores has several compelling benefits that make it a preferred choice for many animal lovers.</p>
+            </div>
+<!--Javascript Image Gallery-->
+            <ul id="album">
+
+            </ul>
+        <script>
+             var photos =[]; //declare an empty array to store iamge 
+             var fileNames=[];//declare an empty element to store image file names
+             var imageList =[];//declare an empty array to store html list that contain an image
+            var image;//declare an empty variable to store the assembled image list codes
+            var openList="<li id='photo'>";//declare a var to contain open list tag
+            var closeList="</li>"//declare a var to contain close list tag
+
+    //create a loop to create 6 images strating with index of 0
+            for (var i=0;i<6;i++){
+            fileNames.push("pet"+(i+1));
+            photos.push('<img src="images/'+fileNames[i]+'.jpg">'); //assemble file name into image element and store in an array
+            image = openList+photos[i]+closeList;
+            imageList.push(image);
+             }
+    //display all six image codes stored in the array
+             document.getElementById("album").innerHTML=imageList.join(" ");
+
+        </script> 
+        </main>
+        
+        <footer>
+            <div class="Disclaimer">
+            <p><i>*Disclaimer:  
+                This website is created and maintained for educational purposes only as part of Westcliff Unversity assignments. All content displayed is intended to demonstrate coursework requirements. 
+                We ensure that all materials used herein respect intellectual property rights and adhere to fair use standards.</i></p>
+            </div>
+            <div class="copyright">
+            <p>Copyrights&#169;2024</p>
+            </div>
+        </footer>
+    </body>
+</div>
+<!--End Container-->
+</html>
+
+
+
+
+
+ 
