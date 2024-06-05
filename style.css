@@ -152,8 +152,8 @@ input[type="radio"]{width: auto;
 .radiogroup {
     display: flex;
     align-items: center;
-    margin: 15px 0 5px 80px;
-    gap:10px;
+    margin: 5px 0 5px 0px;
+    gap: 4px;
 }
 input[type="select"]{width:64px;}
 input[type="submit"]{display:block; margin:20px 0 24px 0; width: 100px;

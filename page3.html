@@ -5,6 +5,24 @@
 <head>
     <title> Adopt Your Pets </title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function showContactMethod() {
+            const contactMethod = document.getElementById("contact-method").value;
+            const emailField = document.getElementById("email-field");
+            const phoneField = document.getElementById("phone-field");
+
+            if (contactMethod === "Email") {
+                emailField.style.display = "block";
+                phoneField.style.display = "none";
+            } else if (contactMethod === "Phone") {
+                emailField.style.display = "none";
+                phoneField.style.display = "block";
+            } else {
+                emailField.style.display = "none";
+                phoneField.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <div id="container">
     <body>
@@ -34,12 +52,26 @@
             <form action="/submit" method = "post">
                 <fieldset>
                     <legend>Your Information</legend>
+
                     <label>Enter your full name</label> 
-                    <input type="text" name="name"> 
+                    <input type="text" name="name">
+
+                    <label for="contact-method">How do you like us to contact you?</label>
+                    <select id="contact-method" name="contact-method" onchange="showContactMethod()">
+                    <option value="">Select one</option>
+                    <option value="Email">Email</option>
+                    <option value="Phone">Phone</option>
+                    </select>
+
+                    <div id="email-field" style="display:none;">
                     <label>Enter your email</label> 
                     <input type="email" name="email"> 
+                    </div>
+
+                    <div id="phone-field" style="display:none;">
                     <label>Enter your phone</label> 
                     <input type="text" name="phone"> 
+                    </div>
                     
                      <label>Dog or Cat?</label> 
                      <div class="radiogroup">
