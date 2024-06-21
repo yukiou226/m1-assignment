@@ -1,18 +1,18 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<!--Brand name of window tab-->
 <head>
-    <title> Adopt Your Pets </title>
+    <title>Adopt Your Pets</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<div id="container">
-    <body>
+<body>
+    <div id="container">
         <header>
             <h1>Adopt Your Pets</h1>    
         </header>
         <nav class="navbar">  
-             <ul>
+            <ul>
                 <li><a href=index.html>Home</a></li>
                 <li><a href=page3.html>Find a Pet</a></li>
                 <li><a href=page2.html>Find a Shelter</a></li>
@@ -20,88 +20,83 @@
                 <li>Contact</li>
             </ul>
         </nav>
-<!--Main Content-->
+
         <main>
             <div class="header-container">
                 <h2 id="headerslogan"> Ready to find yourself a warm company?</h2>
                 <img src="images/findashelter.jpg" alt="p2forSEO" width="600">
-                </div>
+            </div>
             <div class="content">
-            <p>Adopting pets rather than buying them from breeders or pet stores has several compelling benefits that make it a preferred choice for many animal lovers.</p>
+                <p>Adopting pets rather than buying them from breeders or pet stores has several compelling benefits that make it a preferred choice for many animal lovers.</p>
             </div>
 
             <ul id="album">
+                <!-- The JavaScript will populate this -->
             </ul>
         </main>
 
         <footer>
             <div class="Disclaimer">
-            <p><i>*Disclaimer:  
-                This website is created and maintained for educational purposes only as part of Westcliff Unversity assignments. All content displayed is intended to demonstrate coursework requirements. 
-                We ensure that all materials used herein respect intellectual property rights and adhere to fair use standards.</i></p>
+                <p><i>*Disclaimer: This website is created and maintained for educational purposes only as part of Westcliff University assignments. All content displayed is intended to demonstrate coursework requirements. We ensure that all materials used herein respect intellectual property rights and adhere to fair use standards.</i></p>
             </div>
             <div class="copyright">
-            <p>Copyrights&#169;2024</p>
+                <p>Copyrights&#169;2024</p>
             </div>
         </footer>
-<!--Javascript Image Gallery-->
+
+        <!-- Lightbox structure -->
+        <div class="backdrop">
+            <div class="box">
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
         <script>
-            var photos =[]; //declare an empty array to store iamge 
-            var fileNames=[];//declare an empty element to store image file names
-            var imageList =[];//declare an empty array to store html list that contain an image
-           var image;//declare an empty variable to store the assembled image list codes
-           var openList="<li id='photo'>";//declare a var to contain open list tag
-           var closeList="</li>"//declare a var to contain close list tag
+            var photos = [];
+            var fileNames = [];
+            var imageList = [];
+            var image;
+            var openList = "<li id='photo'>";
+            var closeList = "</li>";
 
-           var captions = [
-    "Snow Land",
-    "Wintery Road",
-    "Snowy Drive",
-    "Winter in the Country",
-    "Beautiful Winter",
-    "Snow Wonderland"
-];
+            var captions = [
+                "Dog1",
+                "Dog2",
+                "Dog3",
+                "Dog4",
+                "Dog5",
+                "Dog6"
+            ];
 
-var descriptions = [
-    "Most of plants and animals are having their hibernation period, so winter is not full of bright colors, but who says that white, snowy and a bit magical winter is not cool?",
-    "The most beautiful phenomenon of the winter is snow! You know that the snowflakes are never repeat themselves, they have amazing shapes, different with each new snowflake.",
-    "Snowy drive on the road",
-    "Winter in the country",
-    "Beautiful winter scenery",
-    "Snow wonderland"
-];
+            for (var i = 0; i < 6; i++) {
+                fileNames.push("pet" + (i + 1));
+                photos.push('<img src="images/' + fileNames[i] + '.jpg"><div class="caption">' + captions[i] + '</div>');
+                image = openList + photos[i] + closeList;
+                imageList.push(image);
+            }
+            $("#album").html(imageList.join(" "));
 
-// create a loop to create 6 images starting with index of 0
-for (var i = 0; i < 6; i++) {
-    fileNames.push("winterland" + (i + 1));
-    photos.push('<img src="images/' + fileNames[i] + '.jpg"><div class="caption">' + captions[i] + '</div>'); // assemble file name into image element and store in an array
-    image = openList + photos[i] + '<div class="overlay">Click for more</div>' + closeList;
-    imageList.push(image);
-}
-// display all six image codes stored in the array
-document.getElementById("album").innerHTML = imageList.join(" ");
+            $("#album li").each(function () {
+                $(this).on("click", function () {
+                    var contents = $(this).contents().clone();
+                    $(".box").empty().append(contents).append('<span class="close">&times;</span>');
+                    $(".backdrop").fadeIn();
+                });
+            });
 
-// Add event listeners to handle the overlay and widget
-document.querySelectorAll("#album li").forEach(function (item, index) {
-    item.querySelector(".overlay").addEventListener("click", function () {
-        showWidget(index);
-    });
-});
+            $(".backdrop").on("click", ".close", function () {
+                $(".backdrop").fadeOut();
+            });
 
-function showWidget(index) {
-    var widget = document.createElement("div");
-    widget.className = "widget active";
-    widget.innerHTML = `
-        <h2>${captions[index]}</h2>
-        <p>${descriptions[index]}</p>
-        <div class="close">Click This To Close</div>
-    `;
-    document.body.appendChild(widget);
-
-    widget.querySelector(".close").addEventListener("click", function () {
-        document.body.removeChild(widget);
-    });
-}
+            $(".backdrop").on("click", function (e) {
+                if ($(e.target).is(".backdrop")) {
+                    $(".backdrop").fadeOut();
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
 
    //create a loop to create 6 images strating with index of 0
            //for (var i=0;i<6;i++){
@@ -113,12 +108,7 @@ function showWidget(index) {
    //display all six image codes stored in the array
             //document.getElementById("album").innerHTML=imageList.join(" ");
 
-       </script> 
-    </body>
-</div>
-<!--End Container-->
-</html>
-
+   
 
 
 
